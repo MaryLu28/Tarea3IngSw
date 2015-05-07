@@ -45,7 +45,7 @@ class TestBilleteraElectronica(unittest.TestCase):
         Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
         Fecha = datetime (2009, 8, 30, 3, 25)
         Billetera.recargar(100000, Fecha, "holaXD12")
-        Billetera.consumir(5000, Fecha, "HOk234t1")
+        Billetera.consumir(5000, Fecha, "HOk234t1",663312)
     
     # Caso para verificar que la recarga se haga efectivamente 
        
@@ -62,7 +62,7 @@ class TestBilleteraElectronica(unittest.TestCase):
         Fecha = datetime (2009, 8, 30, 3, 25)
         Billetera.recargar(5000, Fecha, "HOk234t1")
         SaldoAnterior = Billetera.saldo()
-        Billetera.consumir(500, Fecha, "HOk234t1")
+        Billetera.consumir(500, Fecha, "HOk234t1", 663312)
         self.assertEqual(Billetera.saldo(), SaldoAnterior - 500, "Saldo Incorrecto")
         
     # Caso nombres y apellidos en castellano
@@ -75,6 +75,14 @@ class TestBilleteraElectronica(unittest.TestCase):
     def testSaldoCorrect(self):
         Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
         self.assertEqual(Billetera.saldo(), 0)
+    
+    # Caso solucitud de PIN al consumir    
+    
+    def testConsumirPIN(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        Fecha = datetime (2009, 8, 30, 3, 25)
+        Billetera.recargar(100000, Fecha, "holaXD12")
+        Billetera.consumir(5000, Fecha, "HOk234t1", 663312)
     
     ###########################################################################
     #               Casos Fronteras, Esquinas y Malicia                       #

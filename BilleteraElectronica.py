@@ -30,7 +30,7 @@ class BilleteraElectronica():
             self.creditos.append(recarga)
             self.balance += monto
         
-    def consumir(self, monto, fecha, identificador):
+    def consumir(self, monto, fecha, identificador, PIN):
         if monto <= 0:
             raise Exception("Consumo invalida: Monto negativo o cero")
         elif monto > self.balance:
