@@ -16,7 +16,13 @@ class TestBilleteraElectronica(unittest.TestCase):
     # Caso para verificar que existe la clase Billetera Electronica
     
     def testBilleteraElectronicaExist(self):
-        BilleteraElectronica()
+        BilleteraElectronica("AfJ556tY", "Nelson", "Gonzalez", 19994187, 123456)
+        
+    # Caso para verificar que existe el constructor de la clase Billetera 
+    # Electronica
+        
+    def testBEAtributes(self):
+        BilleteraElectronica("AfJ556tY", "Nelson", "Gonzalez", 19994187, 123456)
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
