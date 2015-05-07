@@ -24,3 +24,8 @@ class BilleteraElectronica():
         recarga = (monto,fecha,identificador) 
         self.creditos.append(recarga)
         self.balance += monto
+        
+    def consumir(self, monto, fecha, identificador):
+        consumo = (monto,fecha,identificador)
+        self.debitos.append(consumo)
+        self.balance -= monto

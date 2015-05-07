@@ -37,6 +37,13 @@ class TestBilleteraElectronica(unittest.TestCase):
         Fecha = datetime(2015, 4, 23, 8, 5)
         Billetera.recargar(12000, Fecha, "981yHJ32")
         
+    # Caso para verificar que existe la estructura debitos y el metodo consumir
+    
+    def testConsumirExists(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        Fecha = datetime (2009, 8, 30, 3, 25)
+        Billetera.consumir(5000, Fecha, "HOk234t1")
+    
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
