@@ -31,8 +31,8 @@ class BilleteraElectronica():
             self.balance += monto
         
     def consumir(self, monto, fecha, identificador):
-        if monto < 0:
-            raise Exception("Consumo invalida: Monto negativo")
+        if monto <= 0:
+            raise Exception("Consumo invalida: Monto negativo o cero")
         else:
             consumo = (monto,fecha,identificador)
             self.debitos.append(consumo)
