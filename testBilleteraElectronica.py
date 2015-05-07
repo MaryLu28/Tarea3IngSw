@@ -91,7 +91,15 @@ class TestBilleteraElectronica(unittest.TestCase):
     def testRecargaZero(self):
         Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
         Fecha = datetime (2009, 8, 30, 3, 25)
-        self.assertRaises(Exception, Billetera.recargar , 0, Fecha, "1fjgvkd2")            
+        self.assertRaises(Exception, Billetera.recargar , 0, Fecha, "1fjgvkd2")           
+        
+    # Caso Consumo negativo (Frontera)
+    
+    def testConsumoNegative(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        Fecha = datetime (2009, 8, 30, 3, 25)
+        Billetera.recargar(5000, Fecha, "HOk234t1")
+        self.assertRaises(Exception, Billetera.consumir, -1, Fecha, "HOk234t1")
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
