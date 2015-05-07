@@ -44,6 +44,7 @@ class TestBilleteraElectronica(unittest.TestCase):
     def testConsumirExists(self):
         Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
         Fecha = datetime (2009, 8, 30, 3, 25)
+        Billetera.recargar(100000, Fecha, "holaXD12")
         Billetera.consumir(5000, Fecha, "HOk234t1")
     
     # Caso para verificar que la recarga se haga efectivamente 
@@ -101,13 +102,21 @@ class TestBilleteraElectronica(unittest.TestCase):
         Billetera.recargar(5000, Fecha, "HOk234t1")
         self.assertRaises(Exception, Billetera.consumir, -1, Fecha, "HOk234t1")
         
-    # Caso Conumo monto 0 (Frontera)
+    # Caso Consumo monto 0 (Frontera)
     
     def testConsumoZero(self):
         Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
         Fecha = datetime (2009, 8, 30, 3, 25)
         Billetera.recargar(5000, Fecha, "HOk234t1")
         self.assertRaises(Exception, Billetera.consumir, 0, Fecha, "HOk234t1")
+        
+    # Caso Cansumo con monto mayor que el saldo (Frontera)
+    
+    def testConsumoInvalid(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        Fecha = datetime (2009, 8, 30, 3, 25)
+        self.assertRaises(Exception, Billetera.consumir, 1, Fecha, "HOk234t1") 
+        
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
