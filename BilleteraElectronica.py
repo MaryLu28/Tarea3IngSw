@@ -23,8 +23,8 @@ class BilleteraElectronica():
         return(self.balance)
     
     def recargar(self, monto, fecha, identificador):
-        if monto < 0:
-            raise Exception("Recarga invalida: Monto negativo")
+        if monto <= 0:
+            raise Exception("Recarga invalida: Monto negativo o cero")
         else:
             recarga = (monto,fecha,identificador) 
             self.creditos.append(recarga)

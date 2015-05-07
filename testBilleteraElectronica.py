@@ -80,10 +80,18 @@ class TestBilleteraElectronica(unittest.TestCase):
     ###########################################################################
 
     # Caso Recarga negativa (Frontera)
+    
     def testRecargaNegative(self):
         Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
         Fecha = datetime (2009, 8, 30, 3, 25)
         self.assertRaises(Exception, Billetera.recargar ,-1 , Fecha, "1fjgvkd2")
+        
+    # Caso Regarca con monto 0 (Frontera)
+    
+    def testRecargaZero(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        Fecha = datetime (2009, 8, 30, 3, 25)
+        self.assertRaises(Exception, Billetera.recargar , 0, Fecha, "1fjgvkd2")            
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
