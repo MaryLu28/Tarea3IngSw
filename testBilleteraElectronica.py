@@ -74,7 +74,17 @@ class TestBilleteraElectronica(unittest.TestCase):
     def testSaldoCorrect(self):
         Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
         self.assertEqual(Billetera.saldo(), 0)
-       
+    
+    ###########################################################################
+    #               Casos Fronteras, Esquinas y Malicia                       #
+    ###########################################################################
+
+    # Caso Recarga negativa (Frontera)
+    def testRecargaNegative(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        Fecha = datetime (2009, 8, 30, 3, 25)
+        self.assertRaises(Exception, Billetera.recargar ,-1 , Fecha, "1fjgvkd2")
+        
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

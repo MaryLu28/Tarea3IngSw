@@ -23,9 +23,12 @@ class BilleteraElectronica():
         return(self.balance)
     
     def recargar(self, monto, fecha, identificador):
-        recarga = (monto,fecha,identificador) 
-        self.creditos.append(recarga)
-        self.balance += monto
+        if monto < 0:
+            raise Exception("Recarga invalida: Monto negativo")
+        else:
+            recarga = (monto,fecha,identificador) 
+            self.creditos.append(recarga)
+            self.balance += monto
         
     def consumir(self, monto, fecha, identificador):
         consumo = (monto,fecha,identificador)
