@@ -133,6 +133,10 @@ class TestBilleteraElectronica(unittest.TestCase):
         Fecha = datetime (2009, 8, 30, 3, 25)
         self.assertRaises(Exception, Billetera.consumir, 1, Fecha, "HOk234t1") 
         
+    # Caso Cedula Invalida (Malicia)
+    
+    def testCIInvalid(self):
+        self.assertRaises(Exception, BilleteraElectronica, "24Saa90j" , "Luis", "Garcia", "1234567a", 663312)
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
