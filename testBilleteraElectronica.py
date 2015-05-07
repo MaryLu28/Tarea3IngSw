@@ -44,6 +44,14 @@ class TestBilleteraElectronica(unittest.TestCase):
         Fecha = datetime (2009, 8, 30, 3, 25)
         Billetera.consumir(5000, Fecha, "HOk234t1")
     
+    # Caso para verificar que la recarga se haga efectivamente 
+       
+    def testRecargaCorrect(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        Fecha = datetime (2009, 8, 30, 3, 25)
+        Billetera.recargar(5000, Fecha, "HOk234t1")
+        self.assertEqual(Billetera.saldo(), 5000, "Saldo Incorrecto")
+    
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
