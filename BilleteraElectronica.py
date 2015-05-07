@@ -5,6 +5,8 @@ Created on 7/5/2015
          Maria Lourdes Garcia (10-10264)
 '''
 
+# -*- coding: utf-8 -*-
+
 class BilleteraElectronica():
     
     def __init__(self, ID, nombres, apellidos, CI, PIN):

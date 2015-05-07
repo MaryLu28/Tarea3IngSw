@@ -4,6 +4,8 @@ Created on 7/5/2015
 @author: Daniela Ortiz (10-10517)
          Maria Lourdes Garcia (10-10264)
 '''
+# -*- coding: utf-8 -*-
+
 import unittest
 from BilleteraElectronica import *
 from datetime import datetime
@@ -61,7 +63,12 @@ class TestBilleteraElectronica(unittest.TestCase):
         SaldoAnterior = Billetera.saldo()
         Billetera.consumir(500, Fecha, "HOk234t1")
         self.assertEqual(Billetera.saldo(), SaldoAnterior - 500, "Saldo Incorrecto")
+        
+    # Caso nombres y apellidos en castellano
     
+    def testNamesInCatilian(self):
+        BilleteraElectronica("24Saa90j" , "áéíóú-äëïöüñ", "ÁÉÍÓÚ'ÄËÏÖÜÑ", 8226134, 663312)
+        
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
