@@ -35,6 +35,8 @@ class BilleteraElectronica():
             raise Exception("Consumo invalida: Monto negativo o cero")
         elif monto > self.balance:
             raise Exception("Saldo Insuficiente")
+        elif PIN != self.PIN:
+            raise Exception("PIN Invalido")
         else:
             consumo = (monto,fecha,identificador)
             self.debitos.append(consumo)

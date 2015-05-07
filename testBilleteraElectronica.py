@@ -84,6 +84,14 @@ class TestBilleteraElectronica(unittest.TestCase):
         Billetera.recargar(100000, Fecha, "holaXD12")
         Billetera.consumir(5000, Fecha, "HOk234t1", 663312)
     
+    # Caso PIN invalido
+    
+    def testConsumirPINInvalid(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        Fecha = datetime (2009, 8, 30, 3, 25)
+        Billetera.recargar(100000, Fecha, "holaXD12")
+        self.assertRaises(Exception, Billetera.consumir, 5000, Fecha, "HOk234t1",111111)
+    
     ###########################################################################
     #               Casos Fronteras, Esquinas y Malicia                       #
     ###########################################################################
