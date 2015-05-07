@@ -125,6 +125,7 @@ class TestBilleteraElectronica(unittest.TestCase):
         Fecha = datetime (2009, 8, 30, 3, 25)
         self.assertRaises(Exception, Billetera.consumir, 1, Fecha, "HOk234t1") 
         
+        
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
