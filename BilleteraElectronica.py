@@ -12,6 +12,8 @@ class BilleteraElectronica():
     def __init__(self, ID, nombres, apellidos, CI, PIN):
         if type(CI) != int:
             raise Exception("Cedula Invalida")
+        if type(PIN) != int:
+            raise Exception("PIN Invalido")
         self.ID = ID
         self.nombres = nombres
         self.apellidos = apellidos

@@ -138,6 +138,10 @@ class TestBilleteraElectronica(unittest.TestCase):
     def testCIInvalid(self):
         self.assertRaises(Exception, BilleteraElectronica, "24Saa90j" , "Luis", "Garcia", "1234567a", 663312)
         
+    # Caso PIN no numerico (Malicia)
+    
+    def testPINNotNumber(self):
+        self.assertRaises(Exception, BilleteraElectronica, "24Saa90j" , "Luis", "Garcia", 12345678, "qwerty")
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
