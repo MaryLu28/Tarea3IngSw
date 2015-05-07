@@ -68,7 +68,13 @@ class TestBilleteraElectronica(unittest.TestCase):
     
     def testNamesInCatilian(self):
         BilleteraElectronica("24Saa90j" , "áéíóú-äëïöüñ", "ÁÉÍÓÚ'ÄËÏÖÜÑ", 8226134, 663312)
-        
+    
+    # Caso para verificar que se calcula el saldo correctamente
+    
+    def testSaldoCorrect(self):
+        Billetera = BilleteraElectronica("24Saa90j" , "Luis", "Garcia", 8226134, 663312)
+        self.assertEqual(Billetera.saldo(), 0)
+       
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
